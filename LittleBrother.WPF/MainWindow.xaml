@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:LittleBrother.WPF"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:converters="clr-namespace:LittleBrother.WPF.Converters"
+        xmlns:views="clr-namespace:LittleBrother.WPF.Views"
         mc:Ignorable="d" Height="600" Width="1000"
         
         ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" Foreground="White">
@@ -64,8 +65,16 @@
         </EventTrigger>
     </Window.Triggers>
 
-    <Grid Background="LightGray">
-        <Grid Height="60" VerticalAlignment="Top" Background="#FF13688D" MouseLeftButtonDown="Grid_MouseDown">
+    <Grid Background="LightGray" MouseDown="Grid_MouseDown_1">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid Height="60" Grid.ColumnSpan="2" VerticalAlignment="Top" Background="#FF13688D" MouseLeftButtonDown="Grid_MouseDown">
             <TextBlock  Text="Piess Company"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center" FontSize="22"/>
@@ -85,10 +94,13 @@
                 Width="30" Height="30">
                 <materialDesign:PackIcon Width="25" Height="25" Kind="Power" />
             </Button>
-
         </Grid>
 
-        <Grid x:Name="GridMenu" Width="50" HorizontalAlignment="Left" Background="#FF13568D">
+        <Grid Grid.Row="1" Grid.Column="1" Margin="10">
+            <views:DataGridView x:Name="DataGridView"/>
+        </Grid>
+        
+        <Grid Grid.Row="0" Grid.RowSpan="2" x:Name="GridMenu" Width="50" HorizontalAlignment="Left" Background="#FF13568D">
             <StackPanel>
                 <Grid Height="150" Background="White">
                     <Button 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LittleBrother.WPF.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,6 +29,16 @@ namespace LittleBrother.WPF
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
         {
             DragMove();
+        }
+
+        private void Grid_MouseDown_1(object sender, MouseButtonEventArgs e)
+        {
+            var isDataGridViewSelected = (e.Source as DataGridView) == null ? false : true;
+
+            if (isDataGridViewSelected)
+                return;
+
+            DataGridView.UnselectAll();
         }
     }
 }
