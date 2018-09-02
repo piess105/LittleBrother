@@ -16,7 +16,7 @@ namespace LittleBrother.WPF.Converters
             var par = double.Parse(((string)parameter));
 
             var res = val < par;
-
+            s
             return res;
         }
 
